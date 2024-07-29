@@ -3,7 +3,7 @@ import Card from "../Card";
 import IHero from './../../Interface/IHero';
 import IChamp from '../../Interface/IChamp';
 
-const CardList = ({heroes, fightList, setFightList}: {heroes: Array<IHero>, fightList: Array<IChamp>, setFightList: Dispatch<SetStateAction<IChamp[] | undefined>>}) => {
+const CardList = ({heroes, fightList, setFightList}: {heroes: Array<IHero>, fightList: Array<IChamp> | undefined, setFightList: Dispatch<SetStateAction<IChamp[] | undefined>>}) => {
   
   return (
     <ul 

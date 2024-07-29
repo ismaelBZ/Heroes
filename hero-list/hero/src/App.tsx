@@ -26,6 +26,7 @@ const App = () => {
   const [heroesList, setHeroesList] = useState<Array<IHero>>();
   const [displayList, setDisplayList] = useState<Array<IHero>>();
   const [fightList, setFightList] = useState<Array<IChamp>>();
+  const [champion, setChampion] = useState();
 
   useEffect(() => {
     (async () => {
@@ -38,7 +39,7 @@ const App = () => {
 
   const handleSearch = (value: string) => {
     if (displayList && value !== '') {
-      const newDisplayList = displayList.filter((hero: IHero) => hero.name.toLowerCase() == value.toLowerCase())
+      const newDisplayList = displayList.filter((hero: IHero) => hero.name.toLowerCase() === value.toLowerCase())
       if (newDisplayList.length > 0) {
         setDisplayList((prev) => newDisplayList);
       }
@@ -118,7 +119,7 @@ const App = () => {
   return (
     <div className="bg-stone-900 min-h-lvh py-8">
       <header>
-        <Header search={handleSearch}/>
+        <Header search={handleSearch} fightList={fightList} setChampion={setChampion}/>
       </header>
       <main>
         <CardList heroes={data} fightList={fightList} setFightList={setFightList} />
